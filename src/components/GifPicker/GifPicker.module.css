@@ -1,0 +1,42 @@
+.wrapper {    
+    padding: 0 9px;
+    border: 1px solid #D3D9DE;
+    border-radius: 1px;
+    background: #FFFFFF;
+}
+
+.gifs {
+    overflow: auto;
+    height: 248px;
+    width: 384px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 10px 0;
+
+    /* firfox */
+    scrollbar-color: #DAE2EA white;
+    scrollbar-width: thin;
+}
+
+.gifs::-webkit-scrollbar {
+    width: 6px;
+    height: 77px;
+}
+
+.gifs::-webkit-scrollbar-track {
+    background-color: #FFFFFF;
+    margin: 10px 0;
+}
+
+.gifs::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: #DAE2EA;
+}
+
+.mock {
+    width: 150px;
+    height: 150px;
+}

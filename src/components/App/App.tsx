@@ -2,12 +2,12 @@ import React from "react";
 import Im from "../Im";
 import styles from "./App.module.css";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className={styles.App}>
+    <div className={styles.app}>
       <Im />
     </div>
   );
-}
+};
 
 export default App;

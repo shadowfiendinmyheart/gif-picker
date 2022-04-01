@@ -1,9 +1,25 @@
 .wrapper {
-    width: 437px;
-    height: 90vh;
-    background-color: #eee;
+    width: 439px;
+    min-height: 80vh;
 }
 
-.blue {
-    color: blue;
+.chat {
+    background-color: white;
+    height: calc(80vh - 62px);
+}
+
+.input {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+    padding: 13px 16px;
+    background: #FAFBFC;
+    border: 1px solid #DCE1E6;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.gifs {
+    position: absolute;
+    top: -257px;
 }

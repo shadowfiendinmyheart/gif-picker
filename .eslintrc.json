@@ -27,6 +27,21 @@
         "import"
     ],
     "rules": {
-        "no-restricted-exports": ["off", { "restrictedNamedExports": ["default"] }]
+        "@typescript-eslint/no-unused-vars": "off",
+        "import/prefer-default-export": "off",
+        "no-restricted-exports": [
+            "off",
+            {
+                "restrictedNamedExports": [
+                    "default"
+                ]
+            }
+        ],
+        "react/function-component-definition": [
+            2,
+            {
+                "namedComponents": "arrow-function"
+            }
+        ]
     }
 }
