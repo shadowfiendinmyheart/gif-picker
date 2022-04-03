@@ -4,5 +4,9 @@ export interface Gif {
     preview_gif: {
       url: string;
     };
+    fixed_width_small: {
+      url: string;
+      height: string;
+    };
   };
 }
