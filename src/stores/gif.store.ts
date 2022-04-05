@@ -2,43 +2,55 @@ import { observable, action, makeObservable } from "mobx";
 import getGifs from "../api/gif.api";
 import { Gif } from "../models/gif.model";
 
-enum Status {
+export enum Status {
+  INITIAL = "INITIAL",
   PEDNING = "PEDNING",
   DONE = "DONE",
   ERROR = "ERROR",
+  NOT_FOUND = "NOT_FOUND",
 }
 
 class GifStore {
+  gifs: Gif[] = [];
+
+  status: Status = Status.INITIAL;
+
   constructor() {
     makeObservable(this, {
       gifs: observable,
-      fetchStatus: observable,
+      status: observable,
 
       fetchGifs: action.bound,
       setGifs: action.bound,
     });
   }
 
-  gifs: Gif[] = [];
-
-  fetchStatus: Status = Status.DONE;
-
   public async fetchGifs(query: string) {
     if (!query) return;
 
     this.gifs = [];
-    this.fetchStatus = Status.PEDNING;
+    this.status = Status.PEDNING;
 
     try {
-      this.gifs = await getGifs(query);
-      this.fetchStatus = Status.DONE;
+      const newGifs = await getGifs(query);
+      if (newGifs.length === 0) {
+        this.status = Status.NOT_FOUND;
+        return;
+      }
+
+      this.gifs = newGifs;
+      this.status = Status.DONE;
     } catch (error) {
-      this.fetchStatus = Status.ERROR;
+      this.status = Status.ERROR;
     }
   }
 
   public setGifs(gifs: Gif[]) {
     this.gifs = gifs;
+  }
+
+  public setStatus(status: Status) {
+    this.status = status;
   }
 }
 

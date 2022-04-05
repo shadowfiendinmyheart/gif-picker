@@ -6,7 +6,7 @@ import { DEFAULT_TEXTAREA_HEIGHT } from "../../constants/styles";
 import styles from "./InputText.module.css";
 
 const InputText: React.FC = () => {
-  const { inputStore, gifStore } = useStore();
+  const { inputStore, gifStore, chatStore } = useStore();
   const {
     text,
     setText,
@@ -17,6 +17,7 @@ const InputText: React.FC = () => {
     debouncedQuery,
   } = inputStore;
   const { fetchGifs, setGifs } = gifStore;
+  const { addMessage } = chatStore;
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -48,7 +49,28 @@ const InputText: React.FC = () => {
 
   const handleKeydown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter") {
-      console.log("Some logic here");
+      if (!text) {
+        event.preventDefault();
+        return;
+      }
+
+      if (isCommandMode) {
+        event.preventDefault();
+        return;
+      }
+
+      addMessage({
+        text,
+        time: new Date(),
+        isYours: true,
+      });
+      setText("");
+
+      if (textareaRef.current && backgroundRef.current) {
+        backgroundRef.current.style.height = DEFAULT_TEXTAREA_HEIGHT;
+        textareaRef.current.style.height = DEFAULT_TEXTAREA_HEIGHT;
+      }
+
       event.preventDefault();
     }
   };

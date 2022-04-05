@@ -1,5 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
+
+import Chat from "../Chat";
 import GifPicker from "../GifPicker";
 import InputText from "../InputText";
 import { useStore } from "../../stores/root.store";
@@ -12,7 +14,9 @@ const Im: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.chat}>Hello world!</div>
+      <div className={styles.chat}>
+        <Chat />
+      </div>
       <div className={styles.input}>
         {isGifMode && (
           <div className={styles.gifs}>

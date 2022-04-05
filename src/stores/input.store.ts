@@ -1,8 +1,13 @@
 import debounce from "lodash.debounce";
 import { observable, action, makeObservable, computed, reaction } from "mobx";
+import GifStore, { Status } from "./gif.store";
 
 class InputStore {
-  constructor() {
+  private gifStore: GifStore;
+
+  constructor(gifStore: GifStore) {
+    this.gifStore = gifStore;
+
     makeObservable(this, {
       text: observable,
       debouncedQuery: observable,
@@ -41,6 +46,7 @@ class InputStore {
 
   get isGifMode() {
     if (this.command === "/gif" && this.query.trim().length) {
+      this.gifStore.setStatus(Status.INITIAL);
       return true;
     }
 

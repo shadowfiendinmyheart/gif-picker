@@ -5,17 +5,11 @@
     background: #FFFFFF;
 }
 
-.gifs {
+.content {
     overflow: auto;
     height: 248px;
     width: 384px;
-
     margin-left: 4px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    
     padding: 10px 5px 10px 0;
 
     /* firfox */
@@ -23,22 +17,16 @@
     scrollbar-width: thin;
 }
 
-.gifs::-webkit-scrollbar {
+.content::-webkit-scrollbar {
     width: 6px;
 }
 
-.gifs::-webkit-scrollbar-track {
+.content::-webkit-scrollbar-track {
     background-color: #FFFFFF;
     margin: 10px 0;
 }
 
-.gifs::-webkit-scrollbar-thumb {
+.content::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background: #DAE2EA;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }

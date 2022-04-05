@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100vh;
   flex-grow: 1;
-  padding: 60px 0;
+  padding: 30px 0;
 
   background: linear-gradient(135deg, #2ee6a921 0%, #3399FF21 34.37%, #9933FF21 69.27%, #FF339921 100%);
 }

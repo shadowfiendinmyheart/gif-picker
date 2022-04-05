@@ -1,41 +1,32 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { useStore } from "../../stores/root.store";
-import { NUMBER_OF_GIF_PICKER_COLUMNS } from "../../constants/utils";
 
+import { Status } from "../../stores/gif.store";
+import { useStore } from "../../stores/root.store";
+
+import NotFound from "./components/NotFound";
+import Gifs from "./components/Gifs";
+import Error from "./components/Error";
 import styles from "./GifPicker.module.css";
 
 const GifPicker: React.FC = () => {
   const { gifStore } = useStore();
-  const { gifs } = gifStore;
+  const { status } = gifStore;
 
-  // split gifs array to 3 columns
-  const columns = [...Array(NUMBER_OF_GIF_PICKER_COLUMNS)].map(
-    (column, indexColumn) => {
-      return gifs.filter((gif, rowIndex) => {
-        return rowIndex % NUMBER_OF_GIF_PICKER_COLUMNS === indexColumn;
-      });
-    },
-  );
+  const content = {
+    [Status.INITIAL]: Gifs,
+    [Status.PEDNING]: Gifs,
+    [Status.DONE]: Gifs,
+    [Status.NOT_FOUND]: NotFound,
+    [Status.ERROR]: Error,
+  };
+
+  const Content = content[status];
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.gifs}>
-        {columns.map((column, index) => {
-          return (
-            <div key={index} className={styles.column}>
-              {column.map((gif) => {
-                return (
-                  <img
-                    key={gif.images.fixed_width_small.url + gif.title}
-                    src={gif.images.fixed_width_small.url}
-                    alt={gif.title}
-                  />
-                );
-              })}
-            </div>
-          );
-        })}
+      <div className={styles.content}>
+        <Content />
       </div>
     </div>
   );
