@@ -3,7 +3,7 @@ import { observer } from "mobx-react";
 import { useStore } from "../../stores/root.store";
 import { DEFAULT_TEXTAREA_HEIGHT } from "../../constants/styles";
 
-import styles from "./InputText.module.css";
+import styles from "./InputText.module.scss";
 
 const InputText: React.FC = () => {
   const { inputStore, gifStore, chatStore } = useStore();
@@ -62,7 +62,7 @@ const InputText: React.FC = () => {
       addMessage({
         text,
         time: new Date(),
-        isYours: true,
+        isMy: true,
       });
       setText("");
 
@@ -94,7 +94,7 @@ const InputText: React.FC = () => {
         onKeyDown={handleKeydown}
       />
       <div ref={backgroundRef} className={styles.background} />
-      <div className={styles.mock}>
+      <div className={styles.text}>
         {isCommandMode ? (
           <>
             <span className={styles.fancy}>{command}</span>

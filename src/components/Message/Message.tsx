@@ -1,14 +1,15 @@
 import React from "react";
 import { observer } from "mobx-react";
 import clsx from "clsx";
+
 import { Message as MessageProps } from "../../models/message.model";
 
-import styles from "./Message.module.css";
+import styles from "./Message.module.scss";
 import { padTo2Digits } from "./utils";
 
-const Message: React.FC<MessageProps> = ({ isYours, text, gif, time }) => {
+const Message: React.FC<MessageProps> = ({ isMy, text, gif, time }) => {
   return (
-    <div className={clsx(styles.wrapper, isYours && styles.reverse)}>
+    <div className={clsx(styles.wrapper, isMy && styles.reverse)}>
       {gif ? (
         <img
           className={styles.gif}

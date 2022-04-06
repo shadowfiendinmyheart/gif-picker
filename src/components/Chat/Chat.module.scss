@@ -1,0 +1,22 @@
+@import "../../styles/mixins";
+
+.wrapper {
+    @include scroll;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    padding: 13px 8px 13px 16px;
+    overflow: auto;
+}
+
+.my {
+    max-width: 65%;
+    align-self: end;
+}
+
+.foreign {
+    max-width: 65%;
+    align-self: baseline;
+}

@@ -1,69 +1,55 @@
+@import "../../styles/mixins";
+
 .wrapper {
     position: relative;
 }
 
 .textarea {
+    @include default-font;
+
     position: relative;
     z-index: 10;
     width: 405px;
     height: 36px;
-    border: 1px solid #D3D9DE;
-    border-radius: 6px;
     padding: 9.5px 12px;
+    border: 1px solid #d3d9de;
+    border-radius: 6px;
     outline: none;
     resize: none;
     overflow: hidden;
-
     color: transparent;
     background: transparent;
     caret-color: black;
-    
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 17px;
+
     word-break: break-all;
 }
 
-.textarea::placeholder {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 17px;
-    color: #828282;
-}
-
 .background {
+    position: absolute;
+    top: 0;
     width: 405px;
     height: 36px;
     border-radius: 6px;
     background: white;
-    position: absolute;
-    top: 0;
 }
 
-.mock {
+.text {
+    @include default-font;
+
     position: absolute;
     top: 10.5px;
     left: 13px;
     width: 379px;
     overflow: hidden;
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 17px;
 }
 
 .fancy {
-    background: linear-gradient(135deg, #2EE6A8 0%, #3399FF 34.37%, #9933FF 69.27%, #FF3399 100%);
+    @include background-gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     word-break: break-all;
+    font-weight: 600;
 }
 
 .default {

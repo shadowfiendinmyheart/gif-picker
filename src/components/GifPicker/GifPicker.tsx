@@ -7,7 +7,7 @@ import { useStore } from "../../stores/root.store";
 import NotFound from "./components/NotFound";
 import Gifs from "./components/Gifs";
 import Error from "./components/Error";
-import styles from "./GifPicker.module.css";
+import styles from "./GifPicker.module.scss";
 
 const GifPicker: React.FC = () => {
   const { gifStore } = useStore();

@@ -1,23 +1,22 @@
 .wrapper {
     width: 439px;
     min-height: 90vh;
-    background-color: white;
 }
 
 .chat {
     height: calc(90vh - 62px);
     padding-right: 4px;
+    background-color: white;
 }
 
 .input {
     position: relative;
-
     width: 100%;
     height: auto;
     padding: 13px 16px;
-    background: #FAFBFC;
-    border: 1px solid #DCE1E6;
+    border: 1px solid #dce1e6;
     border-radius: 0px 0px 4px 4px;
+    background: #fafbfc;
 }
 
 .gifs {

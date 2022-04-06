@@ -6,7 +6,7 @@ import GifPicker from "../GifPicker";
 import InputText from "../InputText";
 import { useStore } from "../../stores/root.store";
 
-import styles from "./Im.module.css";
+import styles from "./Im.module.scss";
 
 const Im: React.FC = () => {
   const { inputStore } = useStore();

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { observer } from "mobx-react";
+
+import Message from "../Message";
 import { useStore } from "../../stores/root.store";
 
-import styles from "./Chat.module.css";
-import Message from "../Message";
+import styles from "./Chat.module.scss";
 
 const Chat: React.FC = () => {
   const endMessagesRef = useRef<HTMLDivElement>(null);
@@ -11,7 +12,6 @@ const Chat: React.FC = () => {
   const { messages } = chatStore;
 
   useEffect(() => {
-    // scroll to bottom messages
     if (endMessagesRef.current) {
       endMessagesRef.current.scrollIntoView();
     }
@@ -23,10 +23,10 @@ const Chat: React.FC = () => {
         return (
           <div
             key={index}
-            className={message.isYours ? styles.my : styles.foreign}
+            className={message.isMy ? styles.my : styles.foreign}
           >
             <Message
-              isYours={message.isYours}
+              isMy={message.isMy}
               text={message.text}
               gif={message.gif}
               time={message.time}

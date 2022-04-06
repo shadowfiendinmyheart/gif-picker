@@ -1,6 +1,8 @@
 import React from "react";
+
 import Im from "../Im";
-import styles from "./App.module.css";
+
+import styles from "./App.module.scss";
 
 const App: React.FC = () => {
   return (

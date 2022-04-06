@@ -1,3 +1,8 @@
+@mixin message-border {
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+}
+
 .wrapper {
     display: flex;
     align-items: flex-end;
@@ -8,32 +13,29 @@
 }
 
 .text {
-    background-color: #FAFBFC;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 6px;
-    padding: 6px 9px;
+    @include message-border;
 
+    background-color: #fafbfc;
+    padding: 6px 9px;
     word-break: break-word;
 }
 
 .gif {
+    @include message-border;
+
     width: -moz-available;
     width: -webkit-fill-available;
     width: fill-available;
-
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 6px;
-
-    background-color: #FAFBFC;
+    background-color: #fafbfc;
 }
 
 .time {
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
     line-height: 17px;
-    
-    color: #99A2AD;
+
+    color: #99a2ad;
     margin: 0px 8px;
 }

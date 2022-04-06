@@ -7,7 +7,7 @@ class ChatStore {
   messages: Message[] = [
     {
       text: "Привет, отправь мне гифку!",
-      isYours: false,
+      isMy: false,
       time: minuteAgo,
     },
   ];

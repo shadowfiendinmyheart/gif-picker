@@ -1,9 +1,10 @@
-import { observer } from "mobx-react";
 import React from "react";
+import { observer } from "mobx-react";
+
 import { Gif } from "../../../../models/gif.model";
 import { useStore } from "../../../../stores/root.store";
 
-import styles from "./Gif.module.css";
+import styles from "./Gif.module.scss";
 
 const NUMBER_OF_COLUMNS = 3;
 
@@ -13,15 +14,8 @@ const Gifs: React.FC = () => {
   const { setText } = inputStore;
   const { addMessage } = chatStore;
 
-  // split gifs array to 3 columns
-  const columns = [...Array(NUMBER_OF_COLUMNS)].map((column, indexColumn) => {
-    return gifs.filter((gif, rowIndex) => {
-      return rowIndex % NUMBER_OF_COLUMNS === indexColumn;
-    });
-  });
-
   const handleClick = (event: React.MouseEvent<HTMLImageElement>, gif: Gif) => {
-    addMessage({ gif, time: new Date(), isYours: true });
+    addMessage({ gif, time: new Date(), isMy: true });
     setText("");
   };
 
@@ -30,10 +24,17 @@ const Gifs: React.FC = () => {
     gif: Gif,
   ) => {
     if (event.key === "Enter") {
-      addMessage({ gif, time: new Date(), isYours: true });
+      addMessage({ gif, time: new Date(), isMy: true });
       setText("");
     }
   };
+
+  // split gifs array to 3 columns
+  const columns = [...Array(NUMBER_OF_COLUMNS)].map((column, indexColumn) => {
+    return gifs.filter((gif, rowIndex) => {
+      return rowIndex % NUMBER_OF_COLUMNS === indexColumn;
+    });
+  });
 
   return (
     <div className={styles.grid}>

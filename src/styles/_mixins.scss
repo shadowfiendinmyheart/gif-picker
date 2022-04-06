@@ -1,0 +1,42 @@
+@mixin background-gradient($transparency: 1) {
+    background: linear-gradient(
+        135deg,
+        rgba(46, 230, 169, $transparency) 0%,
+        rgba(51, 153, 255, $transparency) 34.37%,
+        rgba(153, 51, 255, $transparency) 69.27%,
+        rgba(255, 51, 153, $transparency) 100%
+    );
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin default-font {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 17px;
+}
+
+@mixin scroll {
+    scrollbar-color: #dae2ea white;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: #ffffff;
+        margin: 4px 0;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: #dae2ea;
+    }
+}

@@ -1,0 +1,8 @@
+@import "../../../../styles/mixins";
+
+.wrapper {
+    @include flex-center;
+
+    flex-direction: column;
+    height: 100%;
+}
