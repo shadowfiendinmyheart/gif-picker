@@ -1,1 +1,1 @@
-export const API_URL = "http://api.giphy.com/v1/";
+export const API_URL = "https://api.giphy.com/v1/";
