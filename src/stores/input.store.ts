@@ -24,7 +24,7 @@ class InputStore {
       () => this.query,
       debounce((query) => {
         this.debouncedQuery = query;
-      }, 500),
+      }, 750),
     );
   }
 

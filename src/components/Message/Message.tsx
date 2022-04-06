@@ -13,8 +13,9 @@ const Message: React.FC<MessageProps> = ({ isMy, text, gif, time }) => {
       {gif ? (
         <img
           className={styles.gif}
-          alt={gif?.title}
-          src={gif?.images.downsized_large.url}
+          alt={gif.title}
+          src={gif.images.downsized_large.url}
+          height={gif.images.downsized_large.height}
         />
       ) : (
         <div className={styles.text}>{text}</div>

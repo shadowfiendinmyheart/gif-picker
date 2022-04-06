@@ -81,7 +81,7 @@ const InputText: React.FC = () => {
     if (isGifMode) {
       fetchGifs(debouncedQuery);
     }
-  }, [isGifMode, debouncedQuery]);
+  }, [debouncedQuery]);
 
   return (
     <div className={styles.wrapper}>

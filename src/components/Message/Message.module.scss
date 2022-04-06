@@ -26,6 +26,7 @@
     width: -moz-available;
     width: -webkit-fill-available;
     width: fill-available;
+    max-height: 200px;
     background-color: #fafbfc;
 }
 
@@ -35,7 +36,6 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 17px;
-
     color: #99a2ad;
     margin: 0px 8px;
 }
